@@ -1,0 +1,32 @@
+!!!
+%html
+  %head
+    %title Moneysaver
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+    %nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+      %a.navbar-brand{:href => "#"} Money saver
+      %button.navbar-toggler{"aria-controls" => "navbarSupportedContent", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarSupportedContent", "data-toggle" => "collapse", :type => "button"}
+        %span.navbar-toggler-icon
+      #navbarSupportedContent.collapse.navbar-collapse
+        %ul.navbar-nav.mr-auto
+          %li.nav-item.active
+            %a.nav-link{:href => "#"}
+              Категории
+              %span.sr-only (current)
+          %li.nav-item
+            %a.nav-link{:href => "#"} Операции
+          %li.nav-item
+            %a.nav-link{:href => "#"} Бюджет
+          %li.nav-item
+            %a.nav-link{:href => "#"} Счета
+        .my-2.my-lg-0
+          .nav-link.my-2.my-sm-0.text-success{:href => "#"} 25000/50000 Р 
+        .my-2.my-lg-0
+          %a.nav-link.text-light{"data-target" => "#exampleModal", "data-toggle" => "modal"}
+            = fa_icon 'sign-out', text: 'Logout'
+    .content-wrapper
+      .container-fluid
+        = yield

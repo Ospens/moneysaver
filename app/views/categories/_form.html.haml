@@ -1,0 +1,29 @@
+.form
+  = form_for @category, html: { multipart: true } do |f|
+    - if @category.errors.any?
+      = @category.errors.count
+      - @category.errors.full_messages.each do |msg|
+        %li= msg
+
+    .form-group.row
+      = f.label :title, class: 'col-sm-2 col-form-label'
+      .col-sm-10
+        = f.text_field :title, class: 'form-control'
+
+    .form-group.row
+      = f.label :icon, class: 'col-sm-2 col-form-label'
+      .col-sm-10
+        = f.text_field :icon, class: 'form-control'
+
+    .form-group.row
+      = f.label :color, class: 'col-sm-2 col-form-label'
+      .col-sm-10
+        = f.text_field :color, class: 'form-control'
+
+    = f.fields_for :budgets do |budgets_form|
+      .form-group.row
+        = budgets_form.label :budget, class: 'col-sm-2 col-form-label'
+        .col-sm-10
+          = budgets_form.text_field :budget, class: 'form-control'
+
+    = f.submit 'сохранить', class: 'btn btn-success'

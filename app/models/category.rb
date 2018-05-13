@@ -1,4 +1,5 @@
+# Category model
 class Category < ApplicationRecord
-	has_many :budgets, inverse_of: :category
-  accepts_nested_attributes_for :budgets
+  has_many :budgets
+  has_many :operations
 end

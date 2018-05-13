@@ -1,3 +1,4 @@
+# Budget model
 class Budget < ApplicationRecord
-	belongs_to :category
+  has_many :operations
 end

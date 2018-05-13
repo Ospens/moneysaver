@@ -10,8 +10,8 @@
           .card-body-icon
             = fa_icon category.icon || 'list'
           .mr-5= category.title || 'Безымянная категория'
-          .mr-5 2500/3000
-        %a.card-footer.text-white.clearfix.small.z-1{:href => "#"}
+          .mr-5 #{calc_costs(category)} / #{category.month_budget || 'Не задано'}
+        = link_to(new_operation_path(category: category.id), class: 'card-footer text-white clearfix small z-1') do
           %span.float-left Добавить операцию
           %span.float-right
             %i.fa.fa-angle-right
@@ -20,7 +20,7 @@
       .card-body
         .card-body-icon
           = fa_icon 'plus'
-        = link_to 'Добавить категорию', new_categories_path, class: 'mr-5'
+        = link_to 'Добавить категорию', new_category_path, class: 'mr-5'
       %a.card-footer.text-white.clearfix.small.z-1{:href => "#"}
         %span.float-left Добавить операцию
         %span.float-right

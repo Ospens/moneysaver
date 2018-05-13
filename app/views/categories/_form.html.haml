@@ -20,10 +20,9 @@
       .col-sm-10
         = f.text_field :color, class: 'form-control'
 
-    = f.fields_for :budgets do |budgets_form|
-      .form-group.row
-        = budgets_form.label :budget, class: 'col-sm-2 col-form-label'
-        .col-sm-10
-          = budgets_form.text_field :budget, class: 'form-control'
+    .form-group.row
+      = f.label :month_budget, class: 'col-sm-2 col-form-label'
+      .col-sm-10
+        = f.text_field :month_budget, class: 'form-control'
 
     = f.submit 'сохранить', class: 'btn btn-success'

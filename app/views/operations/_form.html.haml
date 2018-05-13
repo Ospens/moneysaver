@@ -1,0 +1,23 @@
+.form
+  = form_for @operation, html: { multipart: true } do |f|
+    - if @operation.errors.any?
+      = @operation.errors.count
+      - @operation.errors.full_messages.each do |msg|
+        %li= msg
+
+    .form-group.row
+      = f.label 'Категория', class: 'col-sm-2 col-form-label'
+      .col-sm-10
+        = f.select 'category_id', options_for_select(Category.all.map { |c| [c.title, c.id] } ), class: 'form-control'
+
+    .form-group.row
+      = f.label 'Тип операции', class: 'col-sm-2 col-form-label'
+      .col-sm-10
+        = f.select :operation_type, options_for_select([['Расход', -1], ['Доход', 1]] ), class: 'form-control'
+
+    .form-group.row
+      = f.label 'Сумма', class: 'col-sm-2 col-form-label'
+      .col-sm-10
+        = f.number_field :operation, class: 'form-control'
+
+    = f.submit 'сохранить', class: 'btn btn-success'

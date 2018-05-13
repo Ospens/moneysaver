@@ -7,7 +7,7 @@
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
     %nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
-      %a.navbar-brand{:href => "#"} Money saver
+      = link_to 'Money saver', root_path, class: 'navbar-brand'
       %button.navbar-toggler{"aria-controls" => "navbarSupportedContent", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarSupportedContent", "data-toggle" => "collapse", :type => "button"}
         %span.navbar-toggler-icon
       #navbarSupportedContent.collapse.navbar-collapse
@@ -21,7 +21,7 @@
           %li.nav-item
             %a.nav-link{:href => "#"} Бюджет
           %li.nav-item
-            %a.nav-link{:href => "#"} Счета
+            = link_to('Счета', budgets_path , class: 'nav-link')
         .my-2.my-lg-0
           .nav-link.my-2.my-sm-0.text-success{:href => "#"} 25000/50000 Р 
         .my-2.my-lg-0

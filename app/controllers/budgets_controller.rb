@@ -1,6 +1,8 @@
 # Budgets
 class BudgetsController < ApplicationController
-  def index; end
+  def index
+    @budgets = Budget.all
+  end
 
   def show; end
 
@@ -9,9 +11,9 @@ class BudgetsController < ApplicationController
   end
 
   def create
-    @budget = Budget.new(Budget_params)
+    @budget = Budget.new(budget_params)
     if @budget.save
-      redirect_to root_path, notice: 'Счет создан'
+      redirect_to budgets_path, notice: 'Счет создан'
     else
       render :new
     end
@@ -39,6 +41,6 @@ class BudgetsController < ApplicationController
   end
 
   def budget_params
-    params.require(:Budget).permit(:title, :icon, :color, :month_budget)
+    params.require(:budget).permit(:title, :icon, :color, :value)
   end
 end

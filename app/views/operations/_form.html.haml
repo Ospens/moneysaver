@@ -6,14 +6,19 @@
         %li= msg
 
     .form-group.row
+      = f.label 'Счет', class: 'col-sm-2 col-form-label'
+      .col-sm-10
+        = f.select 'budget_id', options_for_select(Budget.all.map { |c| [c.title, c.id] }), {}, class: 'form-control'
+
+    .form-group.row
       = f.label 'Категория', class: 'col-sm-2 col-form-label'
       .col-sm-10
-        = f.select 'category_id', options_for_select(Category.all.map { |c| [c.title, c.id] } ), class: 'form-control'
+        = f.select 'category_id', options_for_select(Category.all.map { |c| [c.title, c.id] }, params[:category] ), {}, class: 'form-control'
 
     .form-group.row
       = f.label 'Тип операции', class: 'col-sm-2 col-form-label'
       .col-sm-10
-        = f.select :operation_type, options_for_select([['Расход', -1], ['Доход', 1]] ), class: 'form-control'
+        = f.select :operation_type, options_for_select([['Расход', -1], ['Доход', 1]] ), {}, class: 'form-control'
 
     .form-group.row
       = f.label 'Сумма', class: 'col-sm-2 col-form-label'

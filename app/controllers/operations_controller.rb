@@ -29,6 +29,9 @@ class OperationsController < ApplicationController
   end
 
   def operation_params
-    params.require(:operation).permit(:category_id, :operation, :operation_type)
+    params.require(:operation).permit(:category_id,
+                                      :operation,
+                                      :operation_type,
+                                      :budget_id)
   end
 end

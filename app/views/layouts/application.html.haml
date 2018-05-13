@@ -12,16 +12,14 @@
         %span.navbar-toggler-icon
       #navbarSupportedContent.collapse.navbar-collapse
         %ul.navbar-nav.mr-auto
-          %li.nav-item.active
-            %a.nav-link{:href => "#"}
-              Категории
-              %span.sr-only (current)
+          %li.nav-item{class: current_page?(root_path) ? 'active' : ''}
+            = link_to 'Категории', root_path , class: 'nav-link'
           %li.nav-item
             %a.nav-link{:href => "#"} Операции
           %li.nav-item
             %a.nav-link{:href => "#"} Бюджет
-          %li.nav-item
-            = link_to('Счета', budgets_path , class: 'nav-link')
+          %li.nav-item{class: current_page?(budgets_path) ? 'active' : ''}
+            = link_to 'Счета', budgets_path , class: 'nav-link'
         .my-2.my-lg-0
           .nav-link.my-2.my-sm-0.text-success{:href => "#"} 25000/50000 Р 
         .my-2.my-lg-0

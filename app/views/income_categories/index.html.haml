@@ -1,0 +1,25 @@
+%h1 Listing income_categories
+
+%table
+  %thead
+    %tr
+      %th Title
+      %th Icon
+      %th Color
+      %th
+      %th
+      %th
+
+  %tbody
+    - @income_categories.each do |income_category|
+      %tr
+        %td= income_category.title
+        %td= income_category.icon
+        %td= income_category.color
+        %td= link_to 'Show', income_category
+        %td= link_to 'Edit', edit_income_category_path(income_category)
+        %td= link_to 'Destroy', income_category, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Income category', new_income_category_path

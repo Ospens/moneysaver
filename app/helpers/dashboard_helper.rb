@@ -6,4 +6,12 @@ module DashboardHelper
     end
     sum
   end
+
+  def calc_income(income_category)
+    sum = 0
+    income_category.positive_operations.each do |operation|
+      sum += operation.value
+    end
+    sum
+  end
 end

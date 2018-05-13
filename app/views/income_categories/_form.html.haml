@@ -1,0 +1,23 @@
+.form
+  = form_for @income_category, html: { multipart: true } do |f|
+    - if @income_category.errors.any?
+      = @income_category.errors.count
+      - @income_category.errors.full_messages.each do |msg|
+        %li= msg
+
+    .form-group.row
+      = f.label :title, class: 'col-sm-2 col-form-label'
+      .col-sm-10
+        = f.text_field :title, class: 'form-control'
+
+    .form-group.row
+      = f.label :icon, class: 'col-sm-2 col-form-label'
+      .col-sm-10
+        = f.text_field :icon, class: 'form-control'
+
+    .form-group.row
+      = f.label :color, class: 'col-sm-2 col-form-label'
+      .col-sm-10
+        = f.text_field :color, class: 'form-control'
+
+    = f.submit 'сохранить', class: 'btn btn-success'

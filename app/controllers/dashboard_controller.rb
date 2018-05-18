@@ -1,6 +1,6 @@
 class DashboardController < ApplicationController
   def index
-    @expenditure_categories = Category.all
-    @income_categories = IncomeCategory.all
+    @costs_categories = CostsCategory.all
+    @incomes_categories = IncomesCategory.all
   end
 end

@@ -3,15 +3,15 @@
     %a{:href => "#"} Категории
   %li.breadcrumb-item.active Счета
 .row
-  - @budgets.each do |budget|
+  - @accounts.each do |account|
     .col-xl-3.col-sm-6.mb-3
-      .card.text-white.o-hidden.h-100{style: "background-color: #{budget.color}"}
+      .card.text-white.o-hidden.h-100{style: "background-color: #{account.color}"}
         .card-body
           .card-body-icon
-            = fa_icon budget.icon || 'list'
-          .mr-5= budget.title || 'Безымянный счет'
-          .mr-5= budget.value
-        = link_to new_operation_path(budget: budget.id), class: 'card-footer text-white clearfix small z-1' do
+            = fa_icon account.icon || 'list'
+          .mr-5= account.title || 'Безымянный счет'
+          .mr-5= calc_balance(account)
+        = link_to new_incomes_operation_path(account: account.id), class: 'card-footer text-white clearfix small z-1' do
           %span.float-left Добавить доход
           %span.float-right
             %i.fa.fa-angle-right
@@ -20,7 +20,7 @@
       .card-body
         .card-body-icon
           = fa_icon 'plus'
-        = link_to 'Добавить категорию', new_budget_path, class: 'mr-5 text-white'
+        = link_to 'Добавить категорию', new_account_path, class: 'mr-5 text-white'
       %a.card-footer.text-white.clearfix.small.z-1{:href => "#"}
         %span.float-left Добавить доход
         %span.float-right

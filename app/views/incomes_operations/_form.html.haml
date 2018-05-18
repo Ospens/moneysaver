@@ -1,0 +1,23 @@
+.form
+  = form_for @incomes_operation do |f|
+    - if @incomes_operation.errors.any?
+      = @incomes_operation.errors.count
+      - @incomes_operation.errors.full_messages.each do |msg|
+        %li= msg
+
+    .form-group.row
+      = f.label 'Счет', class: 'col-sm-2 col-form-label'
+      .col-sm-10
+        = f.select 'account_id', options_for_select(Account.all.map { |c| [c.title, c.id] }), {}, class: 'form-control'
+
+    .form-group.row
+      = f.label 'Категория', class: 'col-sm-2 col-form-label'
+      .col-sm-10
+        = f.select 'incomes_category_id', options_for_select(IncomesCategory.all.map { |c| [c.title, c.id] }, params[:category] ), {}, class: 'form-control'
+
+    .form-group.row
+      = f.label 'Сумма', class: 'col-sm-2 col-form-label'
+      .col-sm-10
+        = f.number_field :value, class: 'form-control'
+
+    = f.submit 'сохранить', class: 'btn btn-success'

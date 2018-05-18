@@ -1,5 +1,0 @@
-class AddCategoryIdToBudgets < ActiveRecord::Migration[5.1]
-  def change
-    add_column :budgets, :category_id, :integer
-  end
-end

@@ -1,8 +1,8 @@
 .form
-  = form_for @category, html: { multipart: true } do |f|
-    - if @category.errors.any?
-      = @category.errors.count
-      - @category.errors.full_messages.each do |msg|
+  = form_for @costs_category, html: { multipart: true } do |f|
+    - if @costs_category.errors.any?
+      = @costs_category.errors.count
+      - @costs_category.errors.full_messages.each do |msg|
         %li= msg
 
     .form-group.row

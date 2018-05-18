@@ -1,8 +1,8 @@
-.form
-  = form_for @income_category, html: { multipart: true } do |f|
-    - if @income_category.errors.any?
-      = @income_category.errors.count
-      - @income_category.errors.full_messages.each do |msg|
+.formСумма
+  = form_for @account, html: { multipart: true } do |f|
+    - if @account.errors.any?
+      = @account.errors.count
+      - @account.errors.full_messages.each do |msg|
         %li= msg
 
     .form-group.row
@@ -19,5 +19,10 @@
       = f.label :color, class: 'col-sm-2 col-form-label'
       .col-sm-10
         = f.text_field :color, class: 'form-control'
+
+    .form-group.row
+      = f.label :balance, class: 'col-sm-2 col-form-label'
+      .col-sm-10
+        = f.text_field :balance, class: 'form-control'
 
     = f.submit 'сохранить', class: 'btn btn-success'

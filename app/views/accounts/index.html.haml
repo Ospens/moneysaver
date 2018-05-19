@@ -9,7 +9,7 @@
         .card-body
           .card-body-icon
             = fa_icon account.icon || 'list'
-          .mr-5= account.title || 'Безымянный счет'
+          = link_to account.title || 'Безымянный счет', edit_account_path(account), class: 'mr-5'
           .mr-5= calc_balance(account)
         = link_to new_incomes_operation_path(account: account.id), class: 'card-footer text-white clearfix small z-1' do
           %span.float-left Добавить доход

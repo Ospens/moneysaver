@@ -1,5 +1,6 @@
 # accounts
 class AccountsController < ApplicationController
+  before_action :find_account, only: %i[show edit destroy update]
   def index
     @accounts = Account.all
   end
@@ -23,7 +24,7 @@ class AccountsController < ApplicationController
 
   def update
     if @account.update_attributes(account_params)
-      redirect_to @account, notice: 'Счет изменен'
+      redirect_to accounts_path, notice: 'Счет изменен'
     else
       render :edit
     end
@@ -37,7 +38,7 @@ class AccountsController < ApplicationController
   private
 
   def find_account
-    @accounts = Account.find(params[:id])
+    @account = Account.find(params[:id])
   end
 
   def account_params

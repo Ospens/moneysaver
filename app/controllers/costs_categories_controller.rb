@@ -22,7 +22,7 @@ class CostsCategoriesController < ApplicationController
 
   def update
     if @costs_category.update_attributes(costs_category_params)
-      redirect_to @costs_category, notice: 'Категория расхода успешно изменен'
+      redirect_to root_path, notice: 'Категория расхода успешно изменен'
     else
       render :edit
     end

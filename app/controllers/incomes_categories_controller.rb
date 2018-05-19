@@ -30,8 +30,8 @@ class IncomesCategoriesController < ApplicationController
   def update
     respond_to do |format|
       if @incomes_category.update(incomes_category_params)
-        format.html { redirect_to @incomes_category, notice: 'Income category was successfully updated.' }
-        format.json { render :show, status: :ok, location: @incomes_category }
+        format.html { redirect_to root_path, notice: 'Income category was successfully updated.' }
+        format.json { render root_path, status: :ok, location: @incomes_category }
       else
         format.html { render :edit }
         format.json { render json: @incomes_category.errors, status: :unprocessable_entity }

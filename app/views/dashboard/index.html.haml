@@ -5,13 +5,13 @@
 .row
   - @costs_categories.each do |category|
     .col-xl-3.col-sm-6.mb-3
-      .card.text-white.o-hidden.h-100{style: "background-color: #{category.color}"}
+      .card.o-hidden.h-100{style: "background-color: ##{category.color};", class: contrast_color(category.color)}
         .card-body
           .card-body-icon
             = fa_icon category.icon || 'list'
           = link_to category.title || 'Безымянная категория', edit_costs_category_path(category), class: 'mr-5'
           .mr-5 #{calc_costs(category)} / #{category.month_budget || 'Не задано'}
-        = link_to new_costs_operation_path(category: category.id), class: 'card-footer text-white clearfix small z-1' do
+        = link_to new_costs_operation_path(category: category.id), class: 'card-footer clearfix small z-1' do
           %span.float-left Добавить расход
           %span.float-right
             %i.fa.fa-angle-right
@@ -32,7 +32,7 @@
 .row
   - @incomes_categories.each do |category|
     .col-xl-3.col-sm-6.mb-3
-      .card.text-white.o-hidden.h-100{style: "background-color: #{category.color}"}
+      .card.text-white.o-hidden.h-100{style: "background-color: ##{category.color}"}
         .card-body
           .card-body-icon
             = fa_icon category.icon || 'list'

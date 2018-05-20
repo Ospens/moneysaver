@@ -17,3 +17,8 @@
 
 @import "bootstrap";
 @import "font-awesome";
+// bootstrap has bug in v 4.0
+.dropdown-menu-right {
+    right: 0px;
+    left: auto;
+}

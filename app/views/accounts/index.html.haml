@@ -5,7 +5,7 @@
 .row
   - @accounts.each do |account|
     .col-xl-3.col-sm-6.mb-3
-      .card.text-white.o-hidden.h-100{style: "background-color: #{account.color}"}
+      .card.text-white.o-hidden.h-100{style: "background-color: ##{account.color}"}
         .card-body
           .card-body-icon
             = fa_icon account.icon || 'list'

@@ -5,6 +5,7 @@ Rails.application.routes.draw do
             :incomes_categories,
             :costs_operations,
             :incomes_operations,
-            :dashboard
+            :dashboard,
+            :all_operations
 
 end

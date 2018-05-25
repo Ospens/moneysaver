@@ -1,0 +1,20 @@
+%table.table.table-striped
+  %thead
+    %tr
+      %th{:scope => "col"} #
+      %th{:scope => "col"} Category Name
+      %th{:scope => "col"} Account type
+      %th{:scope => "col"} Value
+      %th{:scope => "col"} Date
+      %th{:scope => "col"} 
+      %th{:scope => "col"} 
+  %tbody
+    - @costs_operations.each_with_index do |operation, i|
+      %tr
+        %th{:scope => "row"}= i+1
+        %th= operation.costs_category.title
+        %td= operation.account.title
+        %td= operation.value
+        %td= operation.datetime
+        %td= link_to 'Edit', edit_costs_operation_path(operation)
+        %td= link_to 'Delete', operation, method: :delete, data: { confirm: 'Are you sure?' }

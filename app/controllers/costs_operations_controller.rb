@@ -8,7 +8,6 @@ class CostsOperationsController < ApplicationController
   end
 
   def create
-    p costs_operation_params
     @costs_operation = CostsOperation.new(costs_operation_params)
     if @costs_operation.save
       redirect_to root_path, notice: 'Операция добавлена'
@@ -21,8 +20,21 @@ class CostsOperationsController < ApplicationController
 
   def edit; end
 
-  def update; end
+  def update
+    if @costs_operation.update_attributes(costs_operation_params)
+      redirect_to all_operations_path, notice: 'Операция успешно изменена'
+    else
+      render :edit
+    end
+  end
 
+  def destroy
+    @costs_operation.destroy
+    respond_to do |format|
+      format.html { redirect_to all_operations_path, notice: 'Операция удалена' }
+      format.json { head :no_content }
+    end
+  end
   private
 
   def find_costs_operation

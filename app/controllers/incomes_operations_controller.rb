@@ -31,6 +31,7 @@ class IncomesOperationsController < ApplicationController
   def incomes_operation_params
     params.require(:incomes_operation).permit(:incomes_category_id,
                                               :value,
-                                              :account_id)
+                                              :account_id,
+                                              :datetime)
   end
 end

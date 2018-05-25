@@ -32,6 +32,7 @@ class CostsOperationsController < ApplicationController
   def costs_operation_params
     params.require(:costs_operation).permit(:costs_category_id,
                                             :value,
-                                            :account_id)
+                                            :account_id,
+                                            :datetime)
   end
 end

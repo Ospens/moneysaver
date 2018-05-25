@@ -20,4 +20,9 @@
       .col-sm-10
         = f.number_field :value, class: 'form-control'
 
+    .form-group.row
+      = f.label :datetime, class: 'col-sm-2 col-form-label'
+      .col-sm-10
+        = f.text_field :datetime, class: 'form-control datetimepicker'
+
     = f.submit 'сохранить', class: 'btn btn-success'
